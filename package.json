@@ -1,6 +1,6 @@
 {
   "name": "mc-ping-updated",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Pings a Minecraft server for its MOTD and other data",
   "main": "index",
   "repository": {
