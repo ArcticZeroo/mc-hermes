@@ -1,17 +1,17 @@
 {
   "name": "mc-ping",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Pings a Minecraft server for its MOTD and other data",
   "main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wizardfrag/mc-ping.git"
+    "url": "https://github.com/Cryptkeeper/mc-ping.git"
   },
   "keywords": [
     "minecraft",
     "ping",
     "utilities"
   ],
-  "author": "David White <me@wizardfrag.co.uk>",
+  "author": "Cryptkeeper <cryptkeeper@hypixel.net>",
   "license": "MIT"
 }
