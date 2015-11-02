@@ -1,11 +1,11 @@
 {
-  "name": "mc-ping",
+  "name": "mc-ping-updated",
   "version": "0.0.4",
   "description": "Pings a Minecraft server for its MOTD and other data",
   "main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cryptkeeper/mc-ping.git"
+    "url": "https://github.com/Cryptkeeper/mc-ping-updated.git"
   },
   "keywords": [
     "minecraft",

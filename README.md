@@ -1,8 +1,8 @@
-# mc-ping
+# mc-ping-updated
 
-![license](http://img.shields.io/npm/l/mc-ping.png?style=flat) 
-![stable](http://img.shields.io/npm/v/mc-ping.png?style=flat)
-[![package](http://img.shields.io/npm/mc-ping.png?style=flat)](https://www.npmjs.org/package/mc-ping)
+![license](http://img.shields.io/npm/l/mc-ping-updated.png?style=flat) 
+![stable](http://img.shields.io/npm/v/mc-ping-updated.png?style=flat)
+[![package](http://img.shields.io/npm/mc-ping-updated.png?style=flat)](https://www.npmjs.org/package/mc-ping-updated)
 
 This is a super-simple library that provides access to the [Server-list-ping](http://wiki.vg/Server_List_Ping) feature of Minecraft servers.
 
@@ -19,13 +19,7 @@ You can use it as follows
     	}
 	}, 3000);
 
-In this instance, `res` will be a javascript object similar to the following:
-
-    { protocol_version: '51',
-      minecraft_version: '1.4.7',
-      server_name: 'Your Server MOTD',
-      num_players: '0',
-      max_players: '20' }
+In this instance, `res` will be a JSON object like so: [http://wiki.vg/Server_List_Ping#Response](http://wiki.vg/Server_List_Ping#Response)
 
 ## License
 
