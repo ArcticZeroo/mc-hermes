@@ -4,7 +4,7 @@
 ![stable](http://img.shields.io/npm/v/mc-ping-updated.png?style=flat)
 [![package](http://img.shields.io/npm/mc-ping-updated.png?style=flat)](https://www.npmjs.org/package/mc-ping-updated)
 
-This is a super-simple library that provides access to the [Server-list-ping](http://wiki.vg/Server_List_Ping) feature of Minecraft servers.
+This library is an updated fork of [wizardfrag/mc-ping](https://github.com/wizardfrag/mc-ping) that supports Minecraft 1.8's protocol. mc-ping(-updated) is a super-simple library that provides access to the [Server List Ping](http://wiki.vg/Server_List_Ping) feature of Minecraft PC servers.
 
 You can use it as follows:
 
