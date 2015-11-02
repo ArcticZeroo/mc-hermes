@@ -6,9 +6,10 @@
 
 This is a super-simple library that provides access to the [Server-list-ping](http://wiki.vg/Server_List_Ping) feature of Minecraft servers.
 
-You can use it as follows
+You can use it as follows:
 
     mcping = require('mc-ping');
+
     mcping('example.com', 25565, function(err, res) {
     	if (err) {
     		// Some kind of error
@@ -19,7 +20,7 @@ You can use it as follows
     	}
 	}, 3000);
 
-In this instance, `res` will be a JSON object like so: [http://wiki.vg/Server_List_Ping#Response](http://wiki.vg/Server_List_Ping#Response)
+If the request completes, `res` will be a JSON object like so: [http://wiki.vg/Server_List_Ping#Response](http://wiki.vg/Server_List_Ping#Response)
 
 ## License
 
