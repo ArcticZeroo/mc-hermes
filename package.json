@@ -1,6 +1,6 @@
 {
   "name": "mc-ping-updated",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Node.js module for pinging 1.8+ Minecraft PC servers.",
   "main": "index",
   "repository": {
