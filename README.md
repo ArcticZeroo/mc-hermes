@@ -14,7 +14,7 @@ mcping('example.com', 25565, function(err, res) {
 	if (err) {
     		// Some kind of error
     		console.error(err);
-    	} else {
+	} else {
     		// Success!
     		console.log(res);
 	}
