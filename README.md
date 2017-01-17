@@ -8,7 +8,7 @@ This library is an updated fork of [wizardfrag/mc-ping](https://github.com/wizar
 
 You can use it as follows:
 
-    mcping = require('mc-ping-updated');
+    const mcping = require('mc-ping-updated');
 
     mcping('example.com', 25565, function(err, res) {
     	if (err) {
