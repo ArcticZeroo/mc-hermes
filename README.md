@@ -7,18 +7,19 @@
 This library is an updated fork of [wizardfrag/mc-ping](https://github.com/wizardfrag/mc-ping) that supports Minecraft 1.8's protocol. mc-ping (and subsequently, mc-ping-updated) is a super-simple library that provides access to the [Server List Ping](http://wiki.vg/Server_List_Ping) feature of Minecraft PC servers.
 
 You can use it as follows:
+```javascript
+const mcping = require('mc-ping-updated');
 
-    mcping = require('mc-ping');
-
-    mcping('example.com', 25565, function(err, res) {
-    	if (err) {
+mcping('example.com', 25565, function(err, res) {
+	if (err) {
     		// Some kind of error
     		console.error(err);
-    	} else {
+	} else {
     		// Success!
     		console.log(res);
-    	}
-	}, 3000);
+	}
+}, 3000);
+```
 
 If the request completes, `res` will be a JSON object like so: [http://wiki.vg/Server_List_Ping#Response](http://wiki.vg/Server_List_Ping#Response)
 
