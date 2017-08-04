@@ -1,36 +1,50 @@
-# mc-ping-updated
+# mc-hermes
 
-![license](http://img.shields.io/npm/l/mc-ping-updated.png?style=flat) 
-![stable](http://img.shields.io/npm/v/mc-ping-updated.png?style=flat)
-[![package](http://img.shields.io/npm/mc-ping-updated.png?style=flat)](https://www.npmjs.org/package/mc-ping-updated)
+This is a library to ping both `pc` and `pe` servers.
 
-This library is an updated fork of [wizardfrag/mc-ping](https://github.com/wizardfrag/mc-ping) that supports Minecraft 1.8's protocol. mc-ping (and subsequently, mc-ping-updated) is a super-simple library that provides access to the [Server List Ping](http://wiki.vg/Server_List_Ping) feature of Minecraft PC servers.
+The library uses a significant portion of both [mc-ping-updated](https://github.com/Cryptkeeper/mc-ping-updated) and [mcpe-ping](https://github.com/Falkirks/mcpe-ping). Thanks to both of you for the base code. 
 
-You can use it as follows:
+I've essentially just cleaned up a few bits, converted all parameters to a single object, somewhat standardized the response, and made it use promises instead of callbacks.
+
+As said prior, all parameters are just a single object passed as the only argument.
+
+Valid parameters are `server` (the hostname/ip), `port` (the port, duh), `timeout` (time in ms for the ping to time out), `type` (if not using `ping.pe` or `ping.pc`), and `protocol` (protocol version to use if pinging PC). 
+
+Only `server` is required, and `type` defaults to pc.
+
+Usage:
+
 ```javascript
-const mcping = require('mc-ping-updated');
+const ping = require('mc-hermes');
 
-mcping('example.com', 25565, function(err, res) {
-	if (err) {
-    		// Some kind of error
-    		console.error(err);
-	} else {
-    		// Success!
-    		console.log(res);
-	}
-}, 3000);
+// PE Ping
+ping({
+    type: 'pe',
+    server: 'pe.mineplex.com'
+})
+    .then((data)=>{
+        console.log(`Online players: ${data.players.online}`);
+    })
+    .catch(console.error);
+
+// PC Ping
+ping({
+    type: 'pc',
+    server: 'us.mineplex.com'
+})
+    .then((data)=>{
+        console.log(`Online players: ${data.players.online}`);
+    })
+    .catch(console.error);
+
+// Also a PC ping
+ping.pc({ server: 'us.mineplex.com' })
+    .then((data)=>{
+        console.log(`Online players: ${data.players.online}`);
+    })
+    .catch(console.error);
 ```
 
-If the request completes, `res` will be a JSON object like so: [http://wiki.vg/Server_List_Ping#Response](http://wiki.vg/Server_List_Ping#Response)
+For both PC and PE, a successful resolution will pass a JSON object as documented here: [http://wiki.vg/Server_List_Ping#Response](http://wiki.vg/Server_List_Ping#Response)
 
-## License
-
-(MIT License)
-
-Copyright (C) 2013 David White &lt;david@wizardfrag.co.uk&gt;
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+PE does not have a few fields that PC does, such as the favicon. However, `version.name`, `players.max`, `players.online`, and `description` exist for both PC and PE, to provide a somewhat consistent format to find player counts across the two platforms. 
