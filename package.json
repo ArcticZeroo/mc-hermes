@@ -1,17 +1,23 @@
 {
-  "name": "mc-ping-updated",
+  "name": "mc-hermes",
   "version": "0.1.0",
-  "description": "Node.js module for pinging 1.8+ Minecraft PC servers.",
-  "main": "index",
+  "description": "Node module for pinging minecraft PC and PE servers",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cryptkeeper/mc-ping-updated.git"
+    "url": "https://github.com/ArcticZeroo/mc-hermes.git"
   },
   "keywords": [
     "minecraft",
     "ping",
-    "utilities"
+    "utilities",
+    "minecraft pc",
+    "minecraft pe",
+    "pc",
+    "pe"
   ],
-  "author": "Cryptkeeper <hello@cryptkpr.me>",
-  "license": "MIT"
+  "author": "ArcticZeroo <spencer@frozor.io>",
+  "dependencies": {
+    "bytebuffer": "^5.0.1"
+  }
 }
