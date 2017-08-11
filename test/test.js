@@ -26,28 +26,33 @@ describe('PC Ping', function () {
         }));
     });
 
+    it('should reject when given a negative port', async function () {
+        return backwardsResolve(pc({
+            server: 'us.mineplex.com',
+            port: -1
+        }));
+    });
+
     it('should respect the timeout option', async function () {
         // Hopefully mineplex will never ping within 10ms...
         return new Promise((resolve, reject)=>{
             pc({
                 server: 'us.mineplex.com',
                 timeout: 10
-            }).then(reject).catch((e)=>{
-                if((e.message || e).includes('Socket timed out')) {
-                    resolve();
+            }).then(()=> reject('Did not time out')).catch((e)=>{
+                if((e.message || e).includes('timed out')) {
+                    resolve('Timed out');
                 } else {
-                    reject();
+                    reject('Did not time out');
                 }
             });
         });
     });
 
-    it('should be able to ping servers', async function () {
+    it('should be able to ping PC servers', async function () {
         return pc({
             server: 'us.mineplex.com',
             timeout: 2000
-        }).then((d)=>{
-            assert.equal(typeof d, 'object');
         });
     });
 });
@@ -59,28 +64,33 @@ describe('PE Ping', function () {
         }));
     });
 
+    it('should reject when given a negative port', async function () {
+        return backwardsResolve(pe({
+            server: 'pe.mineplex.com',
+            port: -1
+        }));
+    });
+
     it('should respect the timeout option', async function () {
         // Hopefully mineplex will never ping within 10ms...
         return new Promise((resolve, reject)=>{
             pe({
-                server: 'us.mineplex.com',
+                server: 'pe.mineplex.com',
                 timeout: 10
-            }).then(reject).catch((e)=>{
+            }).then(()=> reject('Did not time out')).catch((e)=>{
                 if((e.message || e).includes('timed out')) {
-                    resolve();
+                    resolve('Timed out');
                 } else {
-                    reject();
+                    reject('Did not time out');
                 }
             });
         });
     });
 
-    it('should be able to ping server', async function () {
+    it('should be able to ping PE servers', async function () {
         return pe({
             server: 'pe.mineplex.com',
             timeout: 2000
-        }).then((d)=>{
-            assert.equal(typeof d, 'object');
         });
     });
 });
