@@ -1,6 +1,8 @@
 const pc = require('./lib/pc/ping');
 const pe = require('./lib/pe/ping');
 
+const PE_ALIASES = ['pe', 'pocket', 'bedrock', 'mco'];
+
 /**
  * Ping a PC or PE server and return the result as an object.
  * @param {object} [opts={}] - Options to use.
@@ -12,7 +14,7 @@ const pe = require('./lib/pe/ping');
  * @return {Promise}
  */
 function ping(opts = {}) {
-    if (opts.type && opts.type.toLowerCase() === 'pe') {
+    if (opts.type && PE_ALIASES.includes(opts.type.toLowerCase())) {
         return pe(opts);
     } else {
         return pc(opts);
