@@ -55,6 +55,18 @@ describe('PC Ping', function () {
             timeout: 2000
         });
     });
+
+    it('should have version.name, players.max, players.online, and description', async function () {
+        return pc({
+            server: 'us.mineplex.com',
+            timeout: 2000
+        }).then((r)=>{
+            assert(r.version.name != null, 'should have version.name');
+            assert(r.players.max != null, 'should have players.max');
+            assert(r.players.online != null, 'should have players.online');
+            assert(r.description != null, 'should have description');
+        });
+    });
 });
 
 describe('PE Ping', function () {
@@ -91,6 +103,18 @@ describe('PE Ping', function () {
         return pe({
             server: 'pe.mineplex.com',
             timeout: 2000
+        });
+    });
+
+    it('should have version.name, players.max, players.online, and description', async function () {
+        return pe({
+            server: 'pe.mineplex.com',
+            timeout: 2000
+        }).then((r)=>{
+            assert(r.version.name != null, 'should have version.name');
+            assert(r.players.max != null, 'should have players.max');
+            assert(r.players.online != null, 'should have players.online');
+            assert(r.description != null, 'should have description');
         });
     });
 });
